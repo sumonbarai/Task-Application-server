@@ -13,16 +13,8 @@ router.get("/status", (req, res) => {
 // user route
 router.post("/register", userController.create);
 router.post("/login", userController.login);
-router.get(
-  "/profileDetails",
-  authVerifyMiddleware,
-  userController.profileDetails
-);
-router.patch(
-  "/profileUpdate",
-  authVerifyMiddleware,
-  userController.profileUpdate
-);
+router.get("/profileDetails", authVerifyMiddleware, userController.profileDetails);
+router.patch("/profileUpdate", authVerifyMiddleware, userController.profileUpdate);
 
 // opt route
 router.post("/sendOTP/:email", optController.sendOTP);
@@ -32,15 +24,7 @@ router.get("/VerifyOTP/:email/:code", optController.VerifyOTP);
 router.post("/createTask", authVerifyMiddleware, TaskController.createTask);
 router.get("/getTask/:id", authVerifyMiddleware, TaskController.getTask);
 router.get("/getTasks", authVerifyMiddleware, TaskController.getTasks);
-router.patch(
-  "/updateTask/:id",
-  authVerifyMiddleware,
-  TaskController.updateTask
-);
-router.delete(
-  "/deleteTask/:id",
-  authVerifyMiddleware,
-  TaskController.deleteTask
-);
+router.patch("/updateTask/:id", authVerifyMiddleware, TaskController.updateTask);
+router.delete("/deleteTask/:id", authVerifyMiddleware, TaskController.deleteTask);
 
 module.exports = router;

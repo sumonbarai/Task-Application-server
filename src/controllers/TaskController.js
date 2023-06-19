@@ -27,7 +27,6 @@ const getTask = async (req, res) => {
     const id = req.params.id;
     const filter = { email: loggedEmail, _id: id };
     const result = await TaskModel.findOne(filter);
-
     // every think is ok and now success response to client
     return successResponse(res, {
       message: "successfully get single Task",
